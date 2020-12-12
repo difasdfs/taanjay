@@ -8,12 +8,12 @@
 import time
 
 #library for LED matrix
-from luma.led_matrix.device import max7219
-from luma.core.interface.serial import spi, noop
-from luma.core.render import canvas
-from luma.core.virtual import viewport
-from luma.core.legacy import text, show_message, textsize
-from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
+# from luma.led_matrix.device import max7219
+# from luma.core.interface.serial import spi, noop
+# from luma.core.render import canvas
+# from luma.core.virtual import viewport
+# from luma.core.legacy import text, show_message, textsize
+# from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 
 #library for PZEM-004T V3
 import serial
@@ -21,8 +21,8 @@ import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
 
 #Setting LED matrix
-serial_led = spi(port=0, device=0, gpio=noop())
-device = max7219(serial_led, cascaded=4, block_orientation=-90)
+# serial_led = spi(port=0, device=0, gpio=noop())
+# device = max7219(serial_led, cascaded=4, block_orientation=-90)
 
 
 # Connect to the slave
@@ -59,11 +59,11 @@ while True:
 	print("--------------------")
 
 	#show Ampere in LED matrix
-	msg = str(current)
-	w, h = textsize(msg, font=proportional(CP437_FONT))
-	x = round((device.width - w) / 2)
-	with canvas(device) as draw:
-		text(draw, (x, 0), msg, fill="white", font=proportional(CP437_FONT))
+	# msg = str(current)
+	# w, h = textsize(msg, font=proportional(CP437_FONT))
+	# x = round((device.width - w) / 2)
+	# with canvas(device) as draw:
+	# 	text(draw, (x, 0), msg, fill="white", font=proportional(CP437_FONT))
 	
 	time.sleep(1)
 
